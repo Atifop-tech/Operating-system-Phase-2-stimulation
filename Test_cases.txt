@@ -1,0 +1,70 @@
+[
+    [
+        $AMJ 50 10
+        GD10PD10H000
+        $DTA
+        HELLO WORLD
+        $END
+    ],
+    [
+        $AMJ 50 10
+        GD10PD10GD20PD20H000
+        $DTA
+        HELLO
+        WORLD
+        $END
+    ],
+    output : "OPCODE ERROR",
+    [
+        $AMJ 50 10
+        XD10PD10H000
+        $DTA
+        HELLO
+        $END
+    ],
+    output : "OPCODE ERROR",
+    [
+        $AMJ 50 10
+        GD1APD10H000
+        $DTA
+        HELLO
+        $END
+    ],
+    output : "OUT OF DATA",
+    [
+        $AMJ 50 10
+        GD10GD20PD10H000
+        $DTA
+        ONLYONE
+        $END
+    ],
+
+    output : "HELLO WORLD
+LINE LIMIT EXCEEDED "
+
+    [
+        $AMJ 50 1
+        GD10PD10PD10H000
+        $DTA
+        HELLO WORLD
+        $END
+    ]
+
+    output : "TIME LIMIT EXCEEDED "
+    [
+        $AMJ 1 10
+        GD10PD10H000
+        $DTA
+        HELLO
+        $END
+    ],
+
+    output: "OPCODE ERROR"
+    [
+        $AMJ 50 10
+        GD10PD10
+        $DTA
+        HELLO
+        $END
+    ],
+]
