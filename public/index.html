@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Phase 2 Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1><i class="fa-solid fa-microchip"></i> OS Phase 2 Simulator</h1>
+        <p>Upload your job file to execute the simulation</p>
+    </header>
+
+    <div class="main-content">
+        <div class="panel input-panel">
+            <h2><i class="fa-solid fa-file-upload"></i> Input</h2>
+            
+            <div class="file-upload-wrapper">
+                <input type="file" id="fileInput" accept=".txt" />
+                <label for="fileInput" id="fileLabel">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span>Choose a file or drag it here</span>
+                </label>
+            </div>
+
+            <div class="file-preview-container" style="display: none;" id="previewContainer">
+                <div class="panel-header">
+                    <h3>File Preview <span id="fileNameDisplay"></span></h3>
+                </div>
+                <pre id="filePreview"></pre>
+            </div>
+            
+            <div class="actions">
+                <button id="runBtn" class="btn primary-btn" onclick="uploadFile()" disabled>
+                    <i class="fa-solid fa-play"></i> Run Simulation
+                </button>
+            </div>
+        </div>
+
+        <div class="panel output-panel">
+            <div class="panel-header">
+                <h2><i class="fa-solid fa-terminal"></i> Output</h2>
+                <div class="output-actions">
+                    <button class="icon-btn" onclick="copyOutput()" title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                    <button class="icon-btn" onclick="downloadOutput()" title="Download Output"><i class="fa-solid fa-download"></i></button>
+                    <button class="icon-btn" onclick="clearOutput()" title="Clear Output"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+            
+            <div class="output-container">
+                <div id="loader" class="loader" style="display: none;"></div>
+                <pre id="outputBox" class="placeholder-text">Output will appear here...</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
