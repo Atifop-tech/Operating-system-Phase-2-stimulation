@@ -20,17 +20,27 @@
         <div class="panel input-panel">
             <h2><i class="fa-solid fa-file-upload"></i> Input</h2>
             
-            <div class="file-upload-wrapper">
+            <div class="file-upload-wrapper" id="dropZone">
                 <input type="file" id="fileInput" accept=".txt" />
                 <label for="fileInput" id="fileLabel">
                     <i class="fa-solid fa-cloud-arrow-up"></i>
                     <span>Choose a file or drag it here</span>
+                    <small>Only .txt files are supported</small>
                 </label>
+            </div>
+
+            <div class="sample-files">
+                <p class="sample-title">Or use a sample:</p>
+                <div class="sample-buttons">
+                    <button class="btn secondary-btn" onclick="loadSample(1)"><i class="fa-solid fa-file-lines"></i> Valid Job</button>
+                    <button class="btn secondary-btn" onclick="loadSample(2)"><i class="fa-solid fa-file-circle-xmark"></i> Error Job</button>
+                </div>
             </div>
 
             <div class="file-preview-container" style="display: none;" id="previewContainer">
                 <div class="panel-header">
                     <h3>File Preview <span id="fileNameDisplay"></span></h3>
+                    <span id="fileSizeDisplay" class="file-size"></span>
                 </div>
                 <pre id="filePreview"></pre>
             </div>
@@ -45,14 +55,20 @@
         <div class="panel output-panel">
             <div class="panel-header">
                 <h2><i class="fa-solid fa-terminal"></i> Output</h2>
-                <div class="output-actions">
-                    <button class="icon-btn" onclick="copyOutput()" title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                    <button class="icon-btn" onclick="downloadOutput()" title="Download Output"><i class="fa-solid fa-download"></i></button>
-                    <button class="icon-btn" onclick="clearOutput()" title="Clear Output"><i class="fa-solid fa-trash"></i></button>
+                <div class="output-meta">
+                    <span id="execTime" class="exec-time" style="display: none;">
+                        <i class="fa-solid fa-stopwatch"></i> <span id="timeValue">0</span> ms
+                    </span>
+                    <div class="output-actions">
+                        <button class="icon-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen"><i class="fa-solid fa-expand" id="fullscreenIcon"></i></button>
+                        <button class="icon-btn" onclick="copyOutput()" title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                        <button class="icon-btn" onclick="downloadOutput()" title="Download Output"><i class="fa-solid fa-download"></i></button>
+                        <button class="icon-btn" onclick="clearOutput()" title="Clear Output"><i class="fa-solid fa-trash"></i></button>
+                    </div>
                 </div>
             </div>
             
-            <div class="output-container">
+            <div class="output-container" id="outputContainer">
                 <div id="loader" class="loader" style="display: none;"></div>
                 <pre id="outputBox" class="placeholder-text">Output will appear here...</pre>
             </div>

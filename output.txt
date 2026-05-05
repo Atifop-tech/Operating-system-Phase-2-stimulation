@@ -1,5 +1,4 @@
-HELLO                                   
-WORLD                                   
+0021                                    
 NORMAL TERMINATION
 
 NORMAL TERMINATION
